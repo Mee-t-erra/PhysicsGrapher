@@ -274,16 +274,22 @@ def info_window():
     infoW = Tk()
     infoW.title("Graph Information")
     # equation
-    eqnL = Label(infoW, text="equation:")
+    eqnL = Label(infoW, text="equation: ")
     eqnL.grid(row=1, column=0)
     eqntext = Label(infoW, text=info[0])
     eqntext.grid(row=1, column=1)
 
     # R squared Value
-    rSqL = Label(infoW, text="R squared:")
+    rSqL = Label(infoW, text="R squared: ")
     rSqL.grid(row=2, column=0)
     rsqtext = Label(infoW, text=info[1])
     rsqtext.grid(row=2, column=1)
+
+    # gradient uncertainty
+    grUL = Label(infoW, text="Uncertainty in gradient: ")
+    grUL.grid(row=3, column=0)
+    grUText = Label(infoW, text=str(((b[1][1]-b[0][1])/(b[1][0]-b[0][0])-(s[1][1]-s[0][1])/(s[0][1]-s[0][0]))/2))
+    grUText.grid(row=3, column=1)
 
     infoW.mainloop()
 
